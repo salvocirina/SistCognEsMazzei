@@ -1,0 +1,64 @@
+## Natural Language Toolkit: exercise for Sist.Cogn.
+## Author: Salvatore Cirinà <salvatore.cirina@studenti.unito.it>
+
+% start S
+
+############################
+# Grammar Rules
+#############################
+
+S[SEM = <?subj(?vp)>] -> NP[SEM=?subj] VP[SEM=?vp]
+
+VP[SEM = <?vp(?obj)>] -> VP[SEM=?vp] NP[SEM=?obj]
+VP[SEM = <?vp(?obj,?pp)>] -> DTV[SEM=?vp] NP[SEM=?obj] NP[SEM=?pp]
+
+NP[SEM = <?con(?subj1, ?subj2)>] -> NP[SEM=?subj1] CN[SEM=?con] NP[SEM=?subj2]
+NP[SEM = <?num(?subj)>] -> NM[SEM=?num] NP[SEM=?subj]
+NP[SEM = <?art(?subj)>] -> AT[SEM=?art] NP[SEM=?subj]
+NP[SEM = <?subj(?prep)>] -> NP[SEM=?subj] PP[SEM=?prep]
+NP[SEM = <(?subj)>] -> DM[] NP[SEM=?subj]
+
+PP[SEM = <?prep(?subj)>] -> PP[SEM=?prep] NP[SEM=?subj]
+
+#############################
+# Lexical Rules
+#############################
+
+NP[SEM = <\P.P(paolo)>] -> 'Paolo'
+NP[SEM = <\P.P(francesca)>] -> 'Francesca'
+NP[SEM = <\P.P(beatrice)>] -> 'Beatrice'
+NP[SEM = <\P.P(dante)>] -> 'Dante'
+NP[SEM = <\P.P(virgilio)>] -> 'Virgilio'
+NP[SEM = <\P.P(caronte)>] -> 'Caronte'
+NP[SEM = <\x.man(x)>] -> 'uomo'
+NP[SEM = <\x.woman(x)>] -> 'donna'
+NP[SEM = <\x.women(x)>] -> 'donne'
+NP[SEM = <\x.men(x)>] -> 'uomini'
+NP[SEM = <\x.hell(x)>] -> 'inferno'
+NP[SEM = <\x.gift(x)>] -> 'dono'
+NP[SEM = <\x.stars(x)>] -> 'stelle'
+
+VP[SEM = <\X x.X(\y.love(x,y))>] -> 'ama'
+VP[SEM = <\X x.X(\y.hate(x,y))>] -> 'odia'
+VP[SEM = <\X x.X(\y.dream(x,y))>] -> 'sogna'
+VP[SEM = <\X x.X(\y.dream(x,y))>] -> 'sognano'
+VP[SEM = <\X x.X(\y.adore(x,y))>] -> 'adorano'
+VP[SEM = <\X x.X(\y.adore(x,y))>] -> 'adora'
+VP[SEM = <\x.sail(x)>] -> 'naviga'
+VP[SEM = <\X x.X(\y.visit(x,y))>] -> 'visitano'
+VP[SEM = <\X x.X(\y.visit(x,y))>] -> 'visita'
+VP[SEM = <\X x.X(\y.leave(x,y))>] -> 'lascia'
+VP[SEM = <\X x.X(\y.see(x,y))>] -> 'rivede'
+
+DTV[SEM = <\Y X x.X(\z.Y(\y.give(x,y,z)))>] -> 'lasciano'
+
+NM[SEM=<\P Q.all x.(P(x) -> Q(x))>] -> 'tutti' | 'tutte'
+NM[SEM=<\P Q.exists x.(P(x) & Q(x))>] -> 'qualcuno' | 'alcuni' | 'alcune'
+
+AT[SEM=<\P Q.exists x.(P(x) & Q(x))>] -> 'un' | 'uno' | 'una'
+AT[SEM=<\P Q.exists x.(P(x) & Q(x))>] -> 'il' | 'lo' | 'la' | 'i' | 'gli' | 'le'
+
+CN[SEM = <\X.\Y.\R.((X(R)) & (Y(R)))>] -> 'e' | 'ed'
+CN[SEM = <\X \Y \R (R(X) | R(Y))>] -> 'o' | 'oppure'
+
+DM[] -> 'a'

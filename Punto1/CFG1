@@ -1,0 +1,12 @@
+S := NP VP 
+NP := NP CN | NM NP | AT NP | NP PP | DM NP
+NP := Paolo | Francesca | Beatrice | Dante | Virgilio | Caronte | uomo | donna | donne | uomini | inferno | dono | stelle
+VP := VP NP
+VP := ama | odia | sognano | adora | visitano | lasciano | rivede | adorano | naviga
+CN := CN NP
+CN := e | ed | o | oppure
+NM := tutti | qualcuno | alcuni | tutte | alcune
+AT := il | lo | la | i | gli | le | un | uno | una
+PP := PP NP 
+PP := di | a | da | in | con | su | per | tra | fra
+DM := questo | quello | questa | quella | queste | quelle | questi | quei 
