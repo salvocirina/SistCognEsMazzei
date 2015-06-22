@@ -79,7 +79,7 @@ public class CKYAlgorithm {
     public static ArrayList<String> readSentences() {
         try {
             ArrayList<String> lines = (ArrayList<String>) Files.readAllLines(
-                    Paths.get("../../Punto1/Sentences"), Charset.forName("CP850"));
+                    Paths.get("../../Punto1/Sentences.txt"), Charset.forName("CP850"));
             return lines;
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -94,7 +94,7 @@ public class CKYAlgorithm {
     public static void readGrammar() {
         try {
             ArrayList<String> lines = (ArrayList<String>) Files.readAllLines(
-                    Paths.get("../../Punto1/CFG1"), Charset.forName("CP850"));
+                    Paths.get("../../Punto1/CFG1.txt"), Charset.forName("CP850"));
             for (String line : lines) {
                 String[] split = line.split(":=");
                 if (split[0].endsWith(" ")) {
