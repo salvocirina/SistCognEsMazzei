@@ -17,7 +17,7 @@ import java.util.HashMap;
 // * @author salvatore
 // */
 
-public class SistCognEsCKY {
+public class CKYAlgorithm {
  
     static HashMap<String, String> grammar;
     static ArrayList<String> sentences;

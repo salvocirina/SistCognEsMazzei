@@ -45,8 +45,8 @@ public class TheRealizer {
         NPPhraseSpec np;
         PPPhraseSpec pp;
         SPhraseSpec s = nlgFactory.createClause();
-        CoordinatedPhraseElement coord = null;
-        // ottengo la lista dei nodi dell'albero in pre-order traversal
+        CoordinatedPhraseElement coord = null; 
+       // ottengo la lista dei nodi dell'albero in pre-order traversal
         List<Node<String>> nodes = tree.getPreOrderTraversal();
         for(int i = 0; i < nodes.size() ; i++)
         {
