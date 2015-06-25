@@ -1,6 +1,6 @@
 from nltk import load_parser
 parser = load_parser('G2.fcfg',trace=0)
-f = open('Sentences')
+f = open('Sentences.txt')
 lines = f.readlines()
 out = open('G2.txt','w')
 f.close()
